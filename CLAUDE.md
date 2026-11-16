@@ -10,10 +10,9 @@ jugador en cada sesión.
 
 ## Miembros del grupo
 
-<!-- Rellenad la lista con vuestros nombres -->
-- (nombre 1)
-- (nombre 2)
-- (nombre 3)
+- Xavier
+- Alejandro
+- Daniel
 
 ## Tecnología
 
