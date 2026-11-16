@@ -55,7 +55,7 @@ en minúsculas y sin tildes.
 | `jugador` | `dni` | Datos del jugador: nombre, dorsal, altura, peso, posición, pierna dominante |
 | `test` | `nombre_test` | Catálogo de test: objetivo, explicación, material |
 | `sesion` | `fecha` | Sesiones de entrenamiento: duración y objetivo |
-| `resultado` | `dni` + `nombre_test` + `fecha` + `parametro` | Resultado de un jugador en un test, dentro de una sesión |
+| `resultado` | `dni` + `nombre_test` + `fecha` + `parametro` | Resultado de un jugador en un test, dentro de una sesión (valor y unidad de medida) |
 | `realiza` | `dni` + `fecha` | Qué jugadores hicieron cada sesión y su RPE (N:M jugador–sesión) |
 | `tarea_resistencia`, `tarea_fuerza`, `tarea_salto`, `tarea_cambio_direccion`, `tarea_sprint` | `nombre_tarea` | Catálogos de tareas por tipo |
 | `incluye_resistencia`, `incluye_fuerza`, `incluye_salto`, `incluye_cambio_direccion`, `incluye_sprint` | `fecha` + `nombre_tarea` | Qué tareas tiene cada sesión y con qué carga (N:M sesión–tarea) |
