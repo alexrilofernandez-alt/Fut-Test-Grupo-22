@@ -43,7 +43,7 @@ const supabase = window.supabase.createClient(
 La **secret key** NO se apunta aquí ni en ningún otro sitio del repositorio.
 - Las migraciones SQL están en `supabase/migraciones/` y se numeran en orden
   (`000_...`, `001_...`, `002_...`). Una migración ya aplicada no se edita: los
-  cambios van en una migración nueva. Aplicadas en Supabase el 16/11/2026: 000, 001, 002 y 003.
+  cambios van en una migración nueva. Aplicadas en Supabase el 16/11/2026: 000, 001, 002, 003 y 004.
 
 ## Modelo de datos (resumen)
 
@@ -55,7 +55,7 @@ en minúsculas y sin tildes.
 | `jugador` | `dni` | Datos del jugador: nombre, dorsal, altura, peso, posición, pierna dominante |
 | `test` | `nombre_test` | Catálogo de test: objetivo, explicación, material |
 | `sesion` | `fecha` | Sesiones de entrenamiento: duración y objetivo |
-| `resultado` | `dni` + `nombre_test` + `fecha` + `parametro` | Resultado de un jugador en un test, dentro de una sesión (valor y unidad de medida) |
+| `resultado` | `dni` + `nombre_test` + `fecha` + `parametro` + `lado` | Resultado de un jugador en un test, dentro de una sesión (valor, unidad de medida y lado: bilateral, derecha o izquierda) |
 | `realiza` | `dni` + `fecha` | Qué jugadores hicieron cada sesión y su RPE (N:M jugador–sesión) |
 | `tarea_resistencia`, `tarea_fuerza`, `tarea_salto`, `tarea_cambio_direccion`, `tarea_sprint` | `nombre_tarea` | Catálogos de tareas por tipo |
 | `incluye_resistencia`, `incluye_fuerza`, `incluye_salto`, `incluye_cambio_direccion`, `incluye_sprint` | `fecha` + `nombre_tarea` | Qué tareas tiene cada sesión y con qué carga (N:M sesión–tarea) |
