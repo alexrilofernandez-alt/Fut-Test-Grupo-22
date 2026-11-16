@@ -24,9 +24,26 @@ jugador en cada sesión.
   `supabase-js` cargado desde un CDN, por ejemplo:
   `<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>`
 - **Publicación: Cloudflare Pages**, directamente desde este repositorio de GitHub.
+
+### Conexión a Supabase
+
+Proyecto de Supabase: **fut-test** (región París, `eu-west-3`, plan gratuito).
+Estos dos valores son públicos por diseño y pueden ir en el código de la página:
+
+- **Project URL:** `https://zvgqkhwbwewmsgueramu.supabase.co`
+- **Publishable key:** `sb_publishable_gveFQF3Uw3biwSR5XVy-oA_lyjIsjJd`
+
+```js
+const supabase = window.supabase.createClient(
+  'https://zvgqkhwbwewmsgueramu.supabase.co',
+  'sb_publishable_gveFQF3Uw3biwSR5XVy-oA_lyjIsjJd'
+);
+```
+
+La **secret key** NO se apunta aquí ni en ningún otro sitio del repositorio.
 - Las migraciones SQL están en `supabase/migraciones/` y se numeran en orden
-  (`001_...`, `002_...`). Una migración ya aplicada no se edita: los cambios van en
-  una migración nueva.
+  (`000_...`, `001_...`, `002_...`). Una migración ya aplicada no se edita: los
+  cambios van en una migración nueva. Aplicadas en Supabase el 16/11/2026: 000, 001 y 002.
 
 ## Modelo de datos (resumen)
 
