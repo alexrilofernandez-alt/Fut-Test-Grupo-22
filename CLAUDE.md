@@ -43,7 +43,7 @@ const supabase = window.supabase.createClient(
 La **secret key** NO se apunta aquí ni en ningún otro sitio del repositorio.
 - Las migraciones SQL están en `supabase/migraciones/` y se numeran en orden
   (`000_...`, `001_...`, `002_...`). Una migración ya aplicada no se edita: los
-  cambios van en una migración nueva. Aplicadas en Supabase el 16/11/2026: 000, 001 y 002.
+  cambios van en una migración nueva. Aplicadas en Supabase el 16/11/2026: 000, 001, 002 y 003.
 
 ## Modelo de datos (resumen)
 
