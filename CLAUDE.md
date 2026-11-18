@@ -43,10 +43,14 @@ La **secret key** NO se apunta aquí ni en ningún otro sitio del repositorio.
 - Las migraciones SQL están en `supabase/migraciones/` y se numeran en orden
   (`000_...`, `001_...`, `002_...`). Una migración ya aplicada no se edita: los
   cambios van en una migración nueva. Aplicadas en Supabase el 16/11/2026: 000, 001, 002, 003 y 004.
+  Aplicadas el 18/11/2026 **sin aprobación previa** (pendientes de revisión del grupo): 005 y 006.
+  Pendiente de aprobación y **sin aplicar**: 007.
 
 ## Modelo de datos (resumen)
 
-El diagrama original está en `docs/modelo-er.png`. Todos los nombres van en español,
+El diagrama original está en `docs/modelo-er.png`. La versión actualizada (con
+`lesion` y `bienestar`) está en el diseño de Canva "JUGADOR", página 1; la página 2
+es la versión antigua. Todos los nombres van en español,
 en minúsculas y sin tildes.
 
 | Tabla | Clave primaria | Qué guarda |
@@ -58,11 +62,18 @@ en minúsculas y sin tildes.
 | `realiza` | `dni` + `fecha` | Qué jugadores hicieron cada sesión y su RPE (N:M jugador–sesión) |
 | `tarea_resistencia`, `tarea_fuerza`, `tarea_salto`, `tarea_cambio_direccion`, `tarea_sprint` | `nombre_tarea` | Catálogos de tareas por tipo |
 | `incluye_resistencia`, `incluye_fuerza`, `incluye_salto`, `incluye_cambio_direccion`, `incluye_sprint` | `fecha` + `nombre_tarea` | Qué tareas tiene cada sesión y con qué carga (N:M sesión–tarea) |
+| `lesion` | `id` | Lesiones de cada jugador: fechas de lesión y alta, zona, lado, tipo, mecanismo, contexto y si es recaída |
+| `bienestar` | `dni` + `fecha` | Cuestionario de bienestar que el jugador rellena por la mañana (sueño, fatiga, dolor muscular y estrés de 1 a 7, y horas de sueño) |
 
 Relaciones:
 - Un jugador tiene muchos resultados; un test tiene muchos resultados; una sesión tiene muchos resultados.
 - Jugador y sesión: N:M a través de `realiza`.
 - Sesión y cada tipo de tarea: N:M a través de su tabla `incluye_*`.
+- Un jugador puede tener muchas lesiones (relación "sufre"); cada lesión es de un jugador.
+- Un jugador puede rellenar muchos cuestionarios de bienestar (relación "rellena"), uno por día.
+
+Notación del diagrama (Canva): participación obligatoria = punto dentro de la entidad;
+opcional = punto fuera. Clave primaria subrayada, clave ajena en rojo.
 
 ## Reglas para Claude
 
